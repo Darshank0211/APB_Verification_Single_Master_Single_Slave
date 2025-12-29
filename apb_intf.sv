@@ -11,7 +11,7 @@ logic [31:0]prdata ;
 logic       pslverr;
 
 
-clocking drv_cb @(posedge pclk or presetn);
+clocking drv_cb @(posedge pclk);
 	default input #1 output #1;
 	output  paddr  ;  	
         output  penable;
@@ -25,7 +25,7 @@ endclocking
 	
 
 
-clocking mon_cb @(posedge pclk or presetn);
+clocking mon_cb @(posedge pclk);
 	default input #1 output #1;
 	input  paddr  ;  
         input  penable;
@@ -77,3 +77,4 @@ assert property (stable_h)
 
 
 endinterface
+
